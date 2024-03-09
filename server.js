@@ -13,11 +13,18 @@ const messages = [
   },
 ];
 
+const logger = (req, res, next) => {
+  console.log(`${req.method} ${req.url} ${req.ip}`);
+  next();
+};
+
+app.use(logger);
+
 app.get("/api/messages", (req, res) => {
   res.json(messages);
 });
 
-app.use(express.static("public"));
+// app.use(express.static("public"));
 
 if (process.env.NODE_ENV === "production") {
   app.listen(80, () => {
