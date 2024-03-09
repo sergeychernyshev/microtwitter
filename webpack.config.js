@@ -6,7 +6,7 @@ module.exports = {
     filename: "[name].js",
     clean: true,
   },
-  mode: "development",
+  mode: "production",
   devtool: "source-map",
   module: {
     rules: [
@@ -26,16 +26,4 @@ module.exports = {
       filename: "./index.html",
     }),
   ],
-  devServer: {
-    historyApiFallback: true,
-    hot: true,
-    open: true,
-    proxy: [
-      {
-        context: ["^/api"],
-        target: "http://localhost:8081/api/",
-        secure: false,
-      },
-    ],
-  },
 };

@@ -4,11 +4,14 @@
   "description": "Microblogging app built with Node.js, Express, and static files",
   "main": "index.js",
   "scripts": {
-    "start": "webpack --mode development",
     "build": "webpack --mode production",
-    "dev-server": "nodemon server.js",
-    "dev-client": "webpack-dev-server",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "docker:image:build": "docker build -t microtwitter .",
+    "docker:image:remove": "docker image rm microtwitter",
+    "docker:container:run": "docker run --name microtwitter -p 8080:80 -d microtwitter && open http://localhost:8080",
+    "docker:container:stop": "docker kill microtwitter",
+    "docker:container:start": "docker start microtwitter",
+    "docker:container:remove": "docker rm microtwitter"
   },
   "author": "Sergey Chernyshev",
   "devDependencies": {
