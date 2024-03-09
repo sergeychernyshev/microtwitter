@@ -6,6 +6,8 @@
   "scripts": {
     "build": "webpack --mode production",
     "start": "node server.js",
+    "dev:client": "webpack serve --mode development",
+    "dev:server": "NODE_ENV=development nodemon server.js",
     "docker:image:build": "docker build -t microtwitter .",
     "docker:image:remove": "docker image rm microtwitter",
     "docker:container:run": "docker run --name microtwitter -p 8080:80 -d microtwitter && open http://localhost:8080",

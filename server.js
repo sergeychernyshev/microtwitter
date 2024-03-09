@@ -26,6 +26,12 @@ app.get("/api/messages", (req, res) => {
 
 app.use(express.static("dist"));
 
-app.listen(80, () => {
-  console.log("Production server is running on port 80");
-});
+if (process.env.NODE_ENV === "development") {
+  app.listen(8081, () => {
+    console.log("Development server is running on port 8081");
+  });
+} else {
+  app.listen(80, () => {
+    console.log("Production server is running on port 80");
+  });
+}
