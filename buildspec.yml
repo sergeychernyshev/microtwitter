@@ -6,7 +6,6 @@ phases:
     commands:
       - echo Installing source NPM dependencies...
       - npm install
-      - test -d node_modules
   build:
     commands:
       - echo Build started
@@ -24,4 +23,3 @@ artifacts:
     - server.js
     - dist/*
     - package.json
-    - node_modules/*
