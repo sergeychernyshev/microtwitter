@@ -40,7 +40,9 @@ if (process.env.NODE_ENV === "development") {
     console.log("Development server is running on port 8081");
   });
 } else {
-  app.listen(80, () => {
-    console.log("Production server is running on port 80");
+  app.listen(process.env.PORT || 5000, () => {
+    console.log(
+      `Production server is running on port ${process.env.PORT || 5000}`
+    );
   });
 }
