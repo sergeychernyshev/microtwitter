@@ -1,16 +1,19 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 
 const app = express();
 
+let autoincrement = 0;
+
 const messages = [
-  {
-    id: 1,
-    text: "Hello World",
-  },
-  {
-    id: 2,
-    text: "Another message",
-  },
+  // {
+  //   id: autoincrement++,
+  //   text: "Hello World",
+  // },
+  // {
+  //   id: autoincrement++,
+  //   text: "Welcome to microtwitter",
+  // },
 ];
 
 const logger = (req, res, next) => {
@@ -19,8 +22,14 @@ const logger = (req, res, next) => {
 };
 
 app.use(logger);
+app.use(bodyParser.json());
 
 app.get("/api/messages", (req, res) => {
+  res.json(messages);
+});
+
+app.post("/api/messages/new", async (req, res) => {
+  messages.push({ id: autoincrement++, text: req.body.message });
   res.json(messages);
 });
 

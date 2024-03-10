@@ -1,7 +1,8 @@
 import { createRoot } from "react-dom/client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
 import Microblog from "./Microblog";
-import { useEffect } from "react";
+import BlogEntry from "./BlogEntry";
 
 function App() {
   const [messages, setMessages] = useState([]);
@@ -18,10 +19,11 @@ function App() {
   }, []);
 
   return (
-    <>
+    <main>
       <h1>Welcome, microbloggers!</h1>
       <Microblog messages={messages} />
-    </>
+      <BlogEntry setMessages={setMessages} />
+    </main>
   );
 }
 
