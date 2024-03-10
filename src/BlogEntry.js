@@ -23,6 +23,7 @@ export default function BlogEntry({ setMessages }) {
   return (
     <form onSubmit={addPost}>
       <input
+        autoFocus
         type="text"
         onChange={(e) => setMessage(e.target.value)}
         value={message}
