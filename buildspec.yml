@@ -8,12 +8,12 @@ phases:
       - npm install
   build:
     commands:
-      - echo Build started on `date`
+      - echo Build started on $(date +%Y-%m-%d)
       - echo Compiling the Node.js code
       - npm run build
   post_build:
     commands:
-      - echo Build completed on `date`
+      - echo Build completed on $(date +%Y-%m-%d)
 artifacts:
   files:
     - server.js
