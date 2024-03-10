@@ -11,7 +11,7 @@ phases:
       - echo Build started on $(date +%Y-%m-%d)
       - echo Compiling the Node.js code
       - npm run build
-  test-files:
+  test_files:
     commands:
       - echo Testing if files exist
       - test -f server.js
