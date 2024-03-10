@@ -22,6 +22,6 @@ phases:
 artifacts:
   files:
     - server.js
-    - dist/**
+    - dist/*
     - package.json
     - node_modules/*
