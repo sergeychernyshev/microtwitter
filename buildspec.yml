@@ -15,6 +15,7 @@ phases:
       - test -f server.js
       - test -f dist/index.html
       - test -f dist/main.js
+      - test -d node_modules
   post_build:
     commands:
       - echo Build completed on $(date +%Y-%m-%d)
